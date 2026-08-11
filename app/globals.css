@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Surface (bright, cool paper — not warm cream) ──────────── */
+  --color-paper: #ffffff;
+  --color-paper-tint: #eef2f9;
+  --color-paper-deep: #e4eaf4;
+
+  /* ── Ink / text ──────────────────────────────────────────────── */
+  --color-ink: #0b1a45;
+  --color-ink-soft: #33406b;
+  --color-slate: #5b6478;
+  --color-slate-light: #98a0b3;
+  --color-line: #dde3ee;
+
+  /* ── Brand (sampled from the NIVENTRA mark) ─────────────────── */
+  --color-navy: #1230b5;
+  --color-navy-deep: #0b1a45;
+  --color-navy-light: #3f57d6;
+  --color-teal: #2bb6ce;
+  --color-teal-light: #7fd8e6;
+  --color-gold: #eeac00;
+  --color-gold-light: #ffd54a;
+
+  /* ── Type ────────────────────────────────────────────────────── */
+  --font-display: var(--font-newsreader), "Iowan Old Style", "Palatino Linotype", serif;
+  --font-body: var(--font-plex-sans), "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "Courier New", monospace;
+
+  /* ── Shape ───────────────────────────────────────────────────── */
+  --radius-panel: 1.75rem;
+  --radius-card: 1.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper-tint);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-light);
+  border-radius: 999px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-mono-label { font-family: var(--font-mono); }
+
+  /* Eyebrow / micro-label treatment used across every page */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+  }
+
+  .text-balance-tight { text-wrap: balance; }
+
+  /* Soft elevation language (no hard brutalist offsets here) */
+  .shadow-panel {
+    box-shadow: 0 1px 2px rgba(11, 26, 69, 0.04), 0 20px 40px -20px rgba(11, 26, 69, 0.18);
+  }
+  .shadow-panel-lg {
+    box-shadow: 0 4px 10px rgba(11, 26, 69, 0.06), 0 30px 60px -24px rgba(11, 26, 69, 0.24);
+  }
+}
+
+@keyframes draw-current {
+  to { stroke-dashoffset: 0; }
+}
