@@ -1,11 +1,13 @@
 import Image from "next/image";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight, Quote, Rocket, Target, Users, Compass, MessageCircle } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CurrentLine from "@/components/CurrentLine";
 import Reveal from "@/components/ui/Reveal";
-import { about, services, leadership } from "@/data/content";
+import { about, services, leadership, teaser } from "@/data/content";
+
+const teaserIcons = { rocket: Rocket, target: Target, users: Users } as const;
 
 export default function HomePage() {
   return (
@@ -29,21 +31,42 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <div className="mt-12 flex items-center gap-5 border-t border-line pt-8">
-              <span className="font-display text-4xl font-semibold text-navy">{about.stat.value}</span>
+            <div className="mt-12 flex items-end gap-6 border-t border-line pt-8">
+              <div className="shrink-0">
+                <span
+                  className="font-display block text-6xl font-bold leading-none tracking-tight sm:text-7xl"
+                  style={{
+                    backgroundImage: "linear-gradient(135deg, var(--color-navy), var(--color-teal))",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  {about.stat.value}
+                </span>
+                <span className="font-mono-label mt-1 block text-[0.65rem] uppercase tracking-[0.3em] text-gold">
+                  {about.stat.unit}
+                </span>
+              </div>
               <span className="max-w-xs text-sm leading-snug text-slate">{about.stat.label}</span>
             </div>
           </Reveal>
 
           <Reveal delay={0.15} className="relative">
-            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-panel bg-[linear-gradient(150deg,#0b1a45_0%,#1230b5_50%,#2bb6ce_120%)] shadow-panel-lg">
-              <div className="absolute inset-0 opacity-[0.06]" style={{
-                backgroundImage: "radial-gradient(circle at 30% 20%, white 0, transparent 55%)",
-              }} />
-              <div className="absolute inset-8 sm:inset-12">
-                <Image src="/logo/niventra-icon.png" alt="The NIVENTRA mark" fill className="object-contain drop-shadow-2xl" priority />
+            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-panel border border-line bg-white shadow-panel-lg">
+              <div
+                className="absolute inset-0 opacity-[0.05]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(11,26,69,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(11,26,69,0.5) 1px, transparent 1px)",
+                  backgroundSize: "36px 36px",
+                }}
+              />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(43,182,206,0.08)_0%,transparent_60%)]" />
+              <div className="absolute inset-12 sm:inset-16">
+                <Image src="/logo/niventra-full.png" alt="NIVENTRA Medical Affairs" fill className="object-contain" priority />
               </div>
-              <div className="absolute inset-x-8 bottom-8 sm:inset-x-12">
+              <div className="absolute inset-x-10 bottom-8 sm:inset-x-14">
                 <CurrentLine tone="gold" />
               </div>
             </div>
@@ -52,6 +75,84 @@ export default function HomePage() {
             </p>
           </Reveal>
         </div>
+      </section>
+
+      {/* Strategic engine teaser */}
+      <section className="relative overflow-hidden bg-navy-deep">
+        <div className="absolute inset-0 opacity-[0.08]" style={{
+          backgroundImage: "radial-gradient(circle at 80% 0%, white 0, transparent 55%)",
+        }} />
+        <div className="relative mx-auto max-w-5xl px-6 pb-28 pt-20 text-center sm:px-8 sm:pb-32 sm:pt-24">
+          <Reveal>
+            <p className="font-mono-label text-xs font-semibold uppercase tracking-[0.22em] text-gold-light">
+              {teaser.eyebrow}
+            </p>
+            <h2 className="font-display mx-auto mt-5 max-w-3xl text-3xl font-bold leading-[1.15] text-white sm:text-5xl">
+              Medical Affairs, elevated to a <span className="text-gold-light">strategic engine.</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/70">{teaser.subhead}</p>
+            <CurrentLine tone="gold" className="mx-auto mt-10 max-w-xs" />
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.1} className="relative mx-auto -mt-16 max-w-5xl px-6 pb-20 sm:-mt-20 sm:px-8">
+          <div className="rounded-panel border border-line bg-white p-7 shadow-panel-lg sm:p-12">
+            <p className="font-display text-2xl font-bold leading-snug text-ink sm:text-3xl">
+              {teaser.sectionTitle}
+            </p>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate sm:text-base">{teaser.sectionIntro}</p>
+
+            <div className="mt-10 grid gap-5 sm:grid-cols-3">
+              {teaser.pillars.map((pillar, i) => {
+                const accent = [
+                  { bar: "var(--color-navy)", tint: "var(--color-navy)" },
+                  { bar: "var(--color-teal)", tint: "var(--color-teal)" },
+                  { bar: "var(--color-gold)", tint: "var(--color-gold)" },
+                ][i % 3];
+                const PillarIcon = teaserIcons[pillar.icon as keyof typeof teaserIcons];
+                return (
+                  <div key={pillar.title} className="rounded-card border border-line bg-paper-tint p-6">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="font-display flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+                        style={{ backgroundColor: accent.bar }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-xl"
+                        style={{ backgroundColor: `color-mix(in srgb, ${accent.tint} 14%, white)` }}
+                      >
+                        <PillarIcon size={18} style={{ color: accent.tint }} strokeWidth={1.75} />
+                      </span>
+                    </div>
+                    <p className="font-display mt-4 text-base font-semibold text-ink">{pillar.title}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{pillar.text}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 flex flex-col items-center gap-4 rounded-card bg-[linear-gradient(150deg,#0b1a45,#1230b5)] p-6 text-center sm:flex-row sm:text-left">
+              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10">
+                <Compass size={22} className="text-gold-light" strokeWidth={1.75} />
+              </span>
+              <div className="flex items-center gap-4">
+                <span className="font-display text-3xl font-bold text-gold-light sm:text-4xl">
+                  {about.stat.value} <span className="text-lg">{about.stat.unit}</span>
+                </span>
+              </div>
+              <p className="max-w-sm text-sm leading-relaxed text-white/75">{about.stat.label}</p>
+            </div>
+
+            <div className="mt-8 flex flex-col items-center justify-between gap-5 border-t border-line pt-8 sm:flex-row">
+              <p className="font-display max-w-md text-lg font-semibold text-ink">{teaser.closing}</p>
+              <Button href="/contact">
+                <MessageCircle size={16} /> {teaser.closingCta}
+              </Button>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       {/* About narrative */}
@@ -68,37 +169,57 @@ export default function HomePage() {
       </section>
 
       {/* Lifecycle teaser */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:px-8">
-        <Reveal>
-          <SectionHeading eyebrow={services.eyebrow} title={services.headline} />
-        </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          {services.lifecycle.map((stage, i) => (
-            <Reveal key={stage.key} delay={i * 0.1}>
-              <Card className="h-full p-7">
-                <p className="eyebrow">{stage.label}</p>
-                <ul className="mt-4 space-y-2.5">
-                  {stage.items.slice(0, 3).map((item) => (
-                    <li key={item} className="text-sm leading-snug text-ink-soft">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </Reveal>
-          ))}
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(165deg, #ffffff 0%, #eef2f9 45%, #e7f6f9 78%, #fdf6e3 100%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:px-8">
+          <Reveal>
+            <SectionHeading eyebrow={services.eyebrow} title={services.headline} />
+          </Reveal>
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            {services.lifecycle.map((stage, i) => {
+              const accent = [
+                { tone: "navy", bar: "var(--color-navy)", text: "text-navy" },
+                { tone: "teal", bar: "var(--color-teal)", text: "text-teal" },
+                { tone: "gold", bar: "var(--color-gold)", text: "text-gold" },
+              ][i % 3];
+              return (
+                <Reveal key={stage.key} delay={i * 0.1}>
+                  <Card className="h-full overflow-hidden p-7">
+                    <div className="-mx-7 -mt-7 mb-5 h-1.5" style={{ backgroundColor: accent.bar }} />
+                    <p className={`font-mono-label text-xs font-semibold uppercase tracking-[0.16em] ${accent.text}`}>
+                      {stage.label}
+                    </p>
+                    <ul className="mt-4 space-y-2.5">
+                      {stage.items.slice(0, 3).map((item) => (
+                        <li key={item} className="text-sm leading-snug text-ink-soft">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <Reveal delay={0.2} className="mt-10 text-center">
+            <Button href="/services" variant="ghost">
+              See the full lifecycle <ArrowRight size={16} />
+            </Button>
+          </Reveal>
         </div>
-        <Reveal delay={0.2} className="mt-8 text-center">
-          <Button href="/services" variant="ghost">
-            See the full lifecycle <ArrowRight size={16} />
-          </Button>
-        </Reveal>
       </section>
 
       {/* Founder teaser */}
       <section className="border-t border-line bg-navy-deep">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <Reveal className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-panel shadow-panel-lg lg:mx-0">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <Reveal className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-panel shadow-panel-lg lg:mx-0">
             <Image
               src={leadership.founder.photo}
               alt={leadership.founder.name}

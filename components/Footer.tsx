@@ -17,9 +17,9 @@ export default function Footer() {
                 <Image src="/logo/niventra-icon.png" alt="NIVENTRA" fill className="object-contain" />
               </span>
               <span className="flex flex-col leading-none">
-                <span className="font-display text-xl font-semibold text-white">NIVENTRA</span>
+                <span className="font-display text-2xl font-bold text-white">NIVENTRA</span>
                 <span className="font-mono-label text-[0.55rem] uppercase tracking-[0.22em] text-white/55">
-                  Medical Affairs
+                  Medical Affairs <span className="opacity-70">LLP</span>
                 </span>
               </span>
             </span>

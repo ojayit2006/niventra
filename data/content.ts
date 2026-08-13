@@ -3,7 +3,7 @@ export const site = {
   fullName: "NIVENTRA Medical Affairs",
   domain: "niventra.in",
   tagline: "Advancing Medical Affairs with Insight, Integrity and Impact",
-  contactEmail: "hello@niventra.in",
+  contactEmail: "drnivedita@niventra.in",
 };
 
 export const nav = [
@@ -19,10 +19,10 @@ export const nav = [
 export const about = {
   eyebrow: "Founder-Led Medical Affairs Advisory",
   headline: site.tagline,
-  lede: "NIVENTRA is a Founder-led advisory, evidence and capability-building partner for pharmaceutical organisations.",
+  lede: "NIVENTRA is where scientific rigour meets strategic clarity — a founder-led advisory, evidence and capability-building partner for pharmaceutical organisations navigating complex medical terrain.",
   paragraphs: [
-    "NIVENTRA is focussed on enabling meaningful, strategic and scientifically robust Medical Affairs engagement.",
-    "NIVENTRA represents the convergence of scientific knowledge, strategic thinking and trusted medical partnerships that drive better healthcare decisions.",
+    "Every product has a moment where science must speak with one voice, to the right stakeholder, at the right time. NIVENTRA exists to find that voice — enabling meaningful, strategic and scientifically robust Medical Affairs engagement at every stage of the journey.",
+    "NIVENTRA is where scientific knowledge, strategic thinking and trusted medical partnerships converge — turning evidence into decisions that move medicine, and patients, forward.",
   ],
   stat: {
     value: "25+",
@@ -30,13 +30,42 @@ export const about = {
     label: "of Applied Medical Affairs Leadership bringing sound judgment, credible science and practical execution.",
   },
   closing:
-    "NIVENTRA Medical Affairs combines the depth of multinational Medical Affairs experience with a commitment to scientific excellence, ethical governance and meaningful stakeholder engagement to improve patient care.",
+    "NIVENTRA Medical Affairs combines the depth of multinational Medical Affairs leadership with an unwavering commitment to scientific excellence, ethical governance and meaningful stakeholder engagement — because better decisions start with better medicine.",
 };
 
 export type LifecycleStage = {
   key: "prelaunch" | "launch" | "postlaunch";
   label: string;
   items: string[];
+};
+
+export const teaser = {
+  eyebrow: "Niventra Medical Affairs",
+  headline: "Medical Affairs, elevated to a strategic engine.",
+  subhead:
+    "Founder-led advisory, evidence and capability-building support for pharmaceutical organisations.",
+  sectionTitle: "When Medical Affairs must do more than support.",
+  sectionIntro:
+    "NIVENTRA turns scientific need, stakeholder insight, evidence generation and execution into one connected strategic engine.",
+  pillars: [
+    {
+      icon: "rocket",
+      title: "Launch Readiness",
+      text: "Scientific positioning, local insight and aligned clinical narratives.",
+    },
+    {
+      icon: "target",
+      title: "Evidence Strategy",
+      text: "India-relevant RWE, HEOR and evidence plans that support decisions.",
+    },
+    {
+      icon: "users",
+      title: "Capability Transformation",
+      text: "Medical Affairs models, governance and teams built for lasting impact.",
+    },
+  ],
+  closing: "Identify where Medical Affairs can create the greatest strategic value.",
+  closingCta: "Let's start with a focused conversation.",
 };
 
 export const services = {
@@ -88,16 +117,47 @@ export const leadership = {
     name: "Dr Nivedita Telang",
     role: "Founder and CEO",
     photo: "/images/founder.jpg",
+    linkedin: "",
+    intro:
+      "A Medical Affairs leader with over two decades of experience across leading pharmaceutical organisations, translating science into strategy at every stage of the product journey.",
+    highlights: [
+      { value: "20+", label: "Years in Medical Affairs" },
+      { value: "100+", label: "Brands led" },
+      { value: "8", label: "Global pharma organisations" },
+    ],
     bio: [
-      "Dr Nivedita Telang is a Medical Affairs leader with over two decades of experience across leading pharmaceutical organisations: Cipla, Merck Serono, MSD, Janssen Pharmaceuticals (Johnson & Johnson), GSK, Alkem, Sanofi and Opella Healthcare.",
-      "Her experience spans medical strategy for more than 100 brands, multiple therapy areas, and leadership of medical, regulatory and evidence-generation initiatives across India and global stakeholder networks.",
+      "Medical Affairs leader with over two decades of experience across leading pharmaceutical organisations.",
+      "Career spans Cipla, Merck Serono, MSD, Janssen Pharmaceuticals (Johnson & Johnson), GSK, Alkem, Sanofi and Opella Healthcare.",
+      "Led medical strategy for more than 100 brands across multiple therapy areas.",
+      "Directed medical, regulatory and evidence-generation initiatives across India and global stakeholder networks.",
     ],
     disclaimer:
       "The organisations mentioned are former employers of Dr Nivedita Telang and are referenced solely to describe her professional experience. NIVENTRA Medical Affairs LLP is independent and is not affiliated with, endorsed by, or authorised to represent these organisations.",
   },
   team: [
-    { name: "Dr Omkar Telang", role: "President" },
-    { name: "Ojayit Telang", role: "Technical Director" },
+    {
+      name: "Dr Omkar Telang",
+      role: "Co-founder",
+      photo: "/images/leadership/omkar.png",
+      linkedin: "",
+      bio: [
+        "MBBS from Lokmanya Tilak Municipal Medical College, Mumbai (1998), with distinction in ENT and Ophthalmology.",
+        "MS in Ophthalmology from Grant Medical College, Mumbai (2004).",
+        "Teaching faculty in Ophthalmology at K. J. Somaiya Hospital since 2005; currently Professor and Head of Department.",
+        "Specialises in cataract and refractive surgery and glaucoma, with numerous cataract surgeries performed to date.",
+        "Examiner for undergraduate and postgraduate ophthalmology examinations, and faculty at national ophthalmology conferences.",
+        "President of the Bombay Ophthalmologists Association (Secretary, 2016–2017).",
+      ],
+    },
+    {
+      name: "Ojayit Telang",
+      role: "Technical Director",
+      photo: "",
+      linkedin: "",
+      bio: [
+        "Leads technology and digital strategy for NIVENTRA, building the platforms and systems behind the firm's advisory and evidence-generation work.",
+      ],
+    },
   ],
 };
 
@@ -118,6 +178,12 @@ export const qualifications = {
       text: "Global Fellow, WomenLift Health Network",
       images: ["/images/qualifications/q8.jpg", "/images/qualifications/q9.jpg", "/images/qualifications/q10.jpg"],
     },
+  ],
+  snapshotStats: [
+    { value: 100, suffix: "+", label: "SKUs" },
+    { value: 12, suffix: "+", label: "Launches" },
+    { value: 800, suffix: "+", label: "KOLs Engaged" },
+    { value: 45, suffix: "+", label: "DCGI Presentations" },
   ],
 };
 
@@ -181,6 +247,12 @@ export const expertise = {
     title: "Capability Building",
     intro:
       "Dr Telang has built and developed medical teams comprising medical advisors, MSLs, medical operations and regulatory professionals. She has led recruitment, onboarding, coaching and career development across Medical Affairs and cross-functional teams.",
+    substats: [
+      { value: 100, suffix: "+", label: "Training sessions delivered" },
+      { value: "200–400", suffix: "", label: "Reps trained per cycle meeting" },
+      { value: 250, suffix: "", label: "Faculty developed" },
+      { value: "2,500–3,000", suffix: "", label: "HCPs reached via faculty" },
+    ],
     items: [
       "Delivering 100+ scientific, therapeutic-area and product-training sessions for internal medical and commercial teams",
       "Training sales teams at scale, at quarterly cycle meetings with about 200–400 representatives per cycle meeting",
@@ -206,6 +278,10 @@ export const expertise = {
     title: "Governance Expertise",
     intro:
       "Dr Telang brings extensive experience in establishing compliant, scalable and audit-ready Medical Affairs processes for pharmaceutical organisations.",
+    substats: [
+      { value: 50, suffix: "+", label: "CDSCO SEC presentations" },
+      { value: 10, suffix: "", label: "Governance domains covered" },
+    ],
     items: [
       "Medical Affairs strategy and operational governance across portfolios",
       "Review and approval of promotional and scientific materials across therapy areas",
@@ -248,6 +324,7 @@ export const expertise = {
         key: "launch",
         label: "Launch Initiatives",
         intro: "Dr Telang has contributed to the launch of products across specialty medicines and consumer-healthcare portfolios.",
+        substats: [{ value: 20, suffix: "+", label: "Advisory boards delivered" }],
         items: [
           "Designing and executing medical launch strategies",
           "Training internal teams, HCPs and specialist audiences at national and zonal meetings",
@@ -264,6 +341,7 @@ export const expertise = {
         key: "postlaunch",
         label: "Post-launch Initiatives",
         intro: "Dr Telang has led or supported multiple Phase IV, real-world evidence, post-authorisation safety and physician-insight programmes.",
+        substats: [{ value: 350, suffix: "", label: "Accredited CMEs led" }],
         items: [
           "Supporting evidence-generation programmes from protocol development through site initiation, recruitment, monitoring, data interpretation, publication and scientific dissemination",
           "Leading medical-education initiatives including 350 accredited CMEs nationwide",
@@ -274,7 +352,13 @@ export const expertise = {
           "Supporting publication, abstract and congress dissemination of scientific evidence",
           "Maintaining lifecycle governance through safety communication, label updates, regulatory engagement and continuous medical-strategy refinement",
         ],
-        images: ["/images/expertise/strategic-postlaunch/1.jpg", "/images/expertise/strategic-postlaunch/2.jpg", "/images/expertise/strategic-postlaunch/3.jpg", "/images/expertise/strategic-postlaunch/4.jpg"],
+        images: [
+          "/images/expertise/strategic-postlaunch/1.jpg",
+          "/images/expertise/strategic-postlaunch/2.jpg",
+          "/images/expertise/strategic-postlaunch/3.jpg",
+          "/images/expertise/strategic-postlaunch/4.jpg",
+          "/images/expertise/strategic-postlaunch/5.png",
+        ],
       },
     ],
   },
@@ -284,4 +368,12 @@ export const contact = {
   eyebrow: "Contact Us",
   headline: "Start a conversation about your Medical Affairs strategy",
   email: site.contactEmail,
+  phone: "",
+  address: "",
+  linkedin: "",
+  steps: [
+    "Tell us about your organisation and what you need support with.",
+    "Dr Telang and the NIVENTRA team review your message directly — no intermediaries.",
+    "We follow up to explore fit and, where useful, schedule a call.",
+  ],
 };

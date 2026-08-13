@@ -3,11 +3,36 @@ import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CredentialCard from "@/components/ui/CredentialCard";
+import CountUp from "@/components/ui/CountUp";
 import CurrentLine from "@/components/CurrentLine";
 import Reveal from "@/components/ui/Reveal";
 import { expertise } from "@/data/content";
 
 export const metadata: Metadata = { title: "Expertise" };
+
+type Substat = { value: number | string; suffix?: string; label: string };
+
+function SubstatRow({ stats }: { stats?: Substat[] }) {
+  if (!stats || stats.length === 0) return null;
+  return (
+    <div className="mt-8 flex flex-wrap gap-x-10 gap-y-6 border-y border-line py-6">
+      {stats.map((stat) => (
+        <div key={stat.label}>
+          {typeof stat.value === "number" ? (
+            <CountUp
+              value={stat.value}
+              suffix={stat.suffix}
+              className="font-display block text-3xl font-bold text-navy sm:text-4xl"
+            />
+          ) : (
+            <span className="font-display block text-3xl font-bold text-navy sm:text-4xl">{stat.value}</span>
+          )}
+          <p className="mt-1 max-w-[10rem] text-xs leading-snug text-slate">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function BulletGrid({ items }: { items: string[] }) {
   return (
@@ -24,7 +49,7 @@ function BulletGrid({ items }: { items: string[] }) {
 
 function Gallery({ images }: { images: string[] }) {
   return (
-    <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+    <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3">
       {images.map((src) => (
         <CredentialCard key={src} src={src} />
       ))}
@@ -43,6 +68,7 @@ export default function ExpertisePage() {
       <section className="mx-auto max-w-6xl px-6 py-20 sm:px-8">
         <Reveal>
           <SectionHeading eyebrow="Pillar One" title={capabilityBuilding.title} lede={capabilityBuilding.intro} />
+          <SubstatRow stats={capabilityBuilding.substats} />
           <BulletGrid items={capabilityBuilding.items} />
           <Gallery images={capabilityBuilding.images} />
         </Reveal>
@@ -53,6 +79,7 @@ export default function ExpertisePage() {
         <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8">
           <Reveal>
             <SectionHeading eyebrow="Pillar Two" title={governance.title} lede={governance.intro} />
+            <SubstatRow stats={governance.substats} />
             <BulletGrid items={governance.items} />
             <Gallery images={governance.images} />
           </Reveal>
@@ -74,6 +101,7 @@ export default function ExpertisePage() {
               </div>
               <CurrentLine tone={i === 1 ? "gold" : "teal"} className="mt-4 max-w-xs" />
               {stage.intro && <p className="mt-5 max-w-2xl text-sm leading-relaxed text-slate">{stage.intro}</p>}
+              <SubstatRow stats={stage.substats} />
               <BulletGrid items={stage.items} />
               <Gallery images={stage.images} />
             </Reveal>

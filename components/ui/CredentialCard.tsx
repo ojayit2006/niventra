@@ -18,7 +18,7 @@ export default function CredentialCard({
             alt={caption ?? "NIVENTRA credential"}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-            sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 90vw"
+            sizes="(min-width: 1024px) 420px, (min-width: 640px) 45vw, 90vw"
           />
         </div>
         <span className="absolute left-2.5 top-2.5 h-3 w-3 border-l-2 border-t-2 border-gold" />
