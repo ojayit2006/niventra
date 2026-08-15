@@ -24,7 +24,7 @@ function LinkedInLink({ url }: { url: string }) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-navy transition-colors hover:text-teal"
+      className="inline-flex items-center gap-1.5 text-sm font-semibold tracking-[0.02em] text-navy transition-colors hover:text-teal"
     >
       <ExternalLink size={14} /> View Profile
     </a>
@@ -86,7 +86,7 @@ export default function LeadershipPage() {
               <div className="grid gap-6 border-b border-line pb-14 last:border-0 last:pb-0 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-8">
                 <div className="flex items-center gap-4 sm:flex-col sm:items-start">
                   {member.photo ? (
-                    <span className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl shadow-panel sm:h-44 sm:w-40">
+                    <span className="relative h-40 w-40 shrink-0 overflow-hidden rounded-2xl shadow-panel sm:h-64 sm:w-56">
                       <Image src={member.photo} alt={member.name} fill className="object-cover" />
                     </span>
                   ) : (

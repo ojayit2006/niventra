@@ -18,10 +18,7 @@ export default function QualificationsPage() {
           {qualifications.items.map((item, i) => (
             <Reveal key={item.text} delay={Math.min(i * 0.06, 0.3)}>
               <div className="grid gap-6 border-b border-line pb-16 last:border-0 last:pb-0 sm:grid-cols-[auto_1fr_1.3fr] sm:items-start sm:gap-8">
-                <span
-                  className="font-display select-none text-6xl font-bold leading-none text-navy/10 sm:text-7xl"
-                  aria-hidden
-                >
+                <span className="font-mono-label text-sm text-navy" aria-hidden>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="font-display max-w-md text-xl font-semibold leading-snug text-ink sm:text-2xl">
@@ -34,7 +31,7 @@ export default function QualificationsPage() {
                     ))}
                   </div>
                 ) : (
-                  <p className="font-mono-label self-center text-[0.72rem] uppercase tracking-[0.16em] text-slate-light">
+                  <p className="font-mono-label self-center text-base tracking-[0.02em] text-slate-light">
                     Foundational medical degree
                   </p>
                 )}
@@ -53,7 +50,7 @@ export default function QualificationsPage() {
                   suffix={stat.suffix}
                   className="font-display block text-5xl font-bold text-navy sm:text-6xl"
                 />
-                <p className="font-mono-label mt-2 text-[0.7rem] uppercase tracking-[0.14em] text-slate">
+                <p className="font-mono-label mt-2 text-base tracking-[0.02em] text-slate">
                   {stat.label}
                 </p>
               </div>

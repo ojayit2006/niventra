@@ -8,21 +8,21 @@ export const site = {
 
 export const nav = [
   { href: "/", label: "About Us" },
-  { href: "/services", label: "Services" },
   { href: "/leadership", label: "Leadership Team" },
   { href: "/qualifications", label: "Qualifications" },
   { href: "/awards", label: "Awards & Recognition" },
   { href: "/expertise", label: "Expertise" },
+  { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact Us" },
 ] as const;
 
 export const about = {
   eyebrow: "Founder-Led Medical Affairs Advisory",
   headline: site.tagline,
-  lede: "NIVENTRA is where scientific rigour meets strategic clarity — a founder-led advisory, evidence and capability-building partner for pharmaceutical organisations navigating complex medical terrain.",
+  lede: "NIVENTRA is where scientific rigour meets strategic clarity, a founder-led advisory, evidence and capability-building partner for pharmaceutical organisations navigating complex medical terrain.",
   paragraphs: [
-    "Every product has a moment where science must speak with one voice, to the right stakeholder, at the right time. NIVENTRA exists to find that voice — enabling meaningful, strategic and scientifically robust Medical Affairs engagement at every stage of the journey.",
-    "NIVENTRA is where scientific knowledge, strategic thinking and trusted medical partnerships converge — turning evidence into decisions that move medicine, and patients, forward.",
+    "Every product has a moment where science must speak with one voice, to the right stakeholder, at the right time. NIVENTRA exists to find that voice, enabling meaningful, strategic and scientifically robust Medical Affairs engagement at every stage of the journey.",
+    "NIVENTRA is where scientific knowledge, strategic thinking and trusted medical partnerships converge, turning evidence into decisions that move medicine, and patients, forward.",
   ],
   stat: {
     value: "25+",
@@ -30,12 +30,13 @@ export const about = {
     label: "of Applied Medical Affairs Leadership bringing sound judgment, credible science and practical execution.",
   },
   closing:
-    "NIVENTRA Medical Affairs combines the depth of multinational Medical Affairs leadership with an unwavering commitment to scientific excellence, ethical governance and meaningful stakeholder engagement — because better decisions start with better medicine.",
+    "NIVENTRA Medical Affairs combines the depth of multinational Medical Affairs leadership with an unwavering commitment to scientific excellence, ethical governance and meaningful stakeholder engagement, because better decisions start with better medicine.",
 };
 
 export type LifecycleStage = {
   key: "prelaunch" | "launch" | "postlaunch";
   label: string;
+  intro: string;
   items: string[];
 };
 
@@ -77,6 +78,7 @@ export const services = {
     {
       key: "prelaunch",
       label: "Prelaunch",
+      intro: "Building the scientific foundation before a product reaches the market.",
       items: [
         "Unmet medical need assessment",
         "Identification of evidence gaps",
@@ -88,6 +90,7 @@ export const services = {
     {
       key: "launch",
       label: "Launch",
+      intro: "Turning scientific groundwork into a coordinated, credible market entry.",
       items: [
         "Scientific narrative",
         "Internal team scientific capability",
@@ -101,6 +104,7 @@ export const services = {
     {
       key: "postlaunch",
       label: "Postlaunch",
+      intro: "Sustaining scientific relevance and evidence long after launch.",
       items: [
         "Real world evidence strategy",
         "Investigator initiated study plan",
@@ -152,10 +156,13 @@ export const leadership = {
     {
       name: "Ojayit Telang",
       role: "Technical Director",
-      photo: "",
+      photo: "/images/leadership/ojayit.png",
       linkedin: "",
       bio: [
         "Leads technology and digital strategy for NIVENTRA, building the platforms and systems behind the firm's advisory and evidence-generation work.",
+        "Oversees the tools and infrastructure that support the firm's evidence generation, data management and reporting workflows.",
+        "Works closely with the founder to translate Medical Affairs strategy into practical, technology-enabled delivery for client engagements.",
+        "Focused on keeping NIVENTRA's systems secure, scalable and aligned with the firm's governance standards.",
       ],
     },
   ],
@@ -368,12 +375,4 @@ export const contact = {
   eyebrow: "Contact Us",
   headline: "Start a conversation about your Medical Affairs strategy",
   email: site.contactEmail,
-  phone: "",
-  address: "",
-  linkedin: "",
-  steps: [
-    "Tell us about your organisation and what you need support with.",
-    "Dr Telang and the NIVENTRA team review your message directly — no intermediaries.",
-    "We follow up to explore fit and, where useful, schedule a call.",
-  ],
 };

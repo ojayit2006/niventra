@@ -52,12 +52,6 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link
-            href="/contact"
-            className="ml-3 rounded-full bg-navy px-5 py-2.5 text-[0.83rem] font-semibold text-white shadow-panel transition-transform hover:-translate-y-0.5 hover:bg-navy-deep"
-          >
-            Get in Touch
-          </Link>
         </div>
 
         <button

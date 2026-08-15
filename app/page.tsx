@@ -5,7 +5,7 @@ import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CurrentLine from "@/components/CurrentLine";
 import Reveal from "@/components/ui/Reveal";
-import { about, services, leadership, teaser } from "@/data/content";
+import { about, services, leadership, teaser, site } from "@/data/content";
 
 const teaserIcons = { rocket: Rocket, target: Target, users: Users } as const;
 
@@ -33,18 +33,10 @@ export default function HomePage() {
 
             <div className="mt-12 flex items-end gap-6 border-t border-line pt-8">
               <div className="shrink-0">
-                <span
-                  className="font-display block text-6xl font-bold leading-none tracking-tight sm:text-7xl"
-                  style={{
-                    backgroundImage: "linear-gradient(135deg, var(--color-navy), var(--color-teal))",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
+                <span className="font-display block text-6xl font-bold leading-none tracking-tight text-navy sm:text-7xl">
                   {about.stat.value}
                 </span>
-                <span className="font-mono-label mt-1 block text-[0.65rem] uppercase tracking-[0.3em] text-gold">
+                <span className="font-mono-label mt-1 block text-base tracking-[0.02em] text-gold">
                   {about.stat.unit}
                 </span>
               </div>
@@ -54,15 +46,6 @@ export default function HomePage() {
 
           <Reveal delay={0.15} className="relative">
             <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-panel border border-line bg-white shadow-panel-lg">
-              <div
-                className="absolute inset-0 opacity-[0.05]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(11,26,69,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(11,26,69,0.5) 1px, transparent 1px)",
-                  backgroundSize: "36px 36px",
-                }}
-              />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(43,182,206,0.08)_0%,transparent_60%)]" />
               <div className="absolute inset-12 sm:inset-16">
                 <Image src="/logo/niventra-full.png" alt="NIVENTRA Medical Affairs" fill className="object-contain" priority />
               </div>
@@ -70,21 +53,18 @@ export default function HomePage() {
                 <CurrentLine tone="gold" />
               </div>
             </div>
-            <p className="font-mono-label mt-5 text-center text-[0.7rem] uppercase tracking-[0.2em] text-slate">
-              Founder-Led · Evidence-First · Governance-Ready
+            <p className="font-mono-label mt-5 text-center text-base tracking-[0.02em] text-slate">
+              {site.tagline}
             </p>
           </Reveal>
         </div>
       </section>
 
       {/* Strategic engine teaser */}
-      <section className="relative overflow-hidden bg-navy-deep">
-        <div className="absolute inset-0 opacity-[0.08]" style={{
-          backgroundImage: "radial-gradient(circle at 80% 0%, white 0, transparent 55%)",
-        }} />
-        <div className="relative mx-auto max-w-5xl px-6 pb-28 pt-20 text-center sm:px-8 sm:pb-32 sm:pt-24">
+      <section className="bg-navy-deep">
+        <div className="mx-auto max-w-5xl px-6 pb-28 pt-20 text-center sm:px-8 sm:pb-32 sm:pt-24">
           <Reveal>
-            <p className="font-mono-label text-xs font-semibold uppercase tracking-[0.22em] text-gold-light">
+            <p className="font-mono-label text-base font-semibold tracking-[0.02em] text-gold-light">
               {teaser.eyebrow}
             </p>
             <h2 className="font-display mx-auto mt-5 max-w-3xl text-3xl font-bold leading-[1.15] text-white sm:text-5xl">
@@ -102,30 +82,13 @@ export default function HomePage() {
             </p>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate sm:text-base">{teaser.sectionIntro}</p>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            <div className="mt-10 grid gap-8 sm:grid-cols-3">
               {teaser.pillars.map((pillar, i) => {
-                const accent = [
-                  { bar: "var(--color-navy)", tint: "var(--color-navy)" },
-                  { bar: "var(--color-teal)", tint: "var(--color-teal)" },
-                  { bar: "var(--color-gold)", tint: "var(--color-gold)" },
-                ][i % 3];
+                const accent = ["var(--color-navy)", "var(--color-teal)", "var(--color-gold)"][i % 3];
                 const PillarIcon = teaserIcons[pillar.icon as keyof typeof teaserIcons];
                 return (
-                  <div key={pillar.title} className="rounded-card border border-line bg-paper-tint p-6">
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="font-display flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
-                        style={{ backgroundColor: accent.bar }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-xl"
-                        style={{ backgroundColor: `color-mix(in srgb, ${accent.tint} 14%, white)` }}
-                      >
-                        <PillarIcon size={18} style={{ color: accent.tint }} strokeWidth={1.75} />
-                      </span>
-                    </div>
+                  <div key={pillar.title} className="border-t-2 pt-5" style={{ borderColor: accent }}>
+                    <PillarIcon size={22} style={{ color: accent }} strokeWidth={1.75} />
                     <p className="font-display mt-4 text-base font-semibold text-ink">{pillar.title}</p>
                     <p className="mt-2 text-sm leading-relaxed text-ink-soft">{pillar.text}</p>
                   </div>
@@ -134,9 +97,7 @@ export default function HomePage() {
             </div>
 
             <div className="mt-8 flex flex-col items-center gap-4 rounded-card bg-[linear-gradient(150deg,#0b1a45,#1230b5)] p-6 text-center sm:flex-row sm:text-left">
-              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10">
-                <Compass size={22} className="text-gold-light" strokeWidth={1.75} />
-              </span>
+              <Compass size={28} className="shrink-0 text-gold-light" strokeWidth={1.75} />
               <div className="flex items-center gap-4">
                 <span className="font-display text-3xl font-bold text-gold-light sm:text-4xl">
                   {about.stat.value} <span className="text-lg">{about.stat.unit}</span>
@@ -169,15 +130,8 @@ export default function HomePage() {
       </section>
 
       {/* Lifecycle teaser */}
-      <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(165deg, #ffffff 0%, #eef2f9 45%, #e7f6f9 78%, #fdf6e3 100%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:px-8">
+      <section className="border-b border-line">
+        <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8">
           <Reveal>
             <SectionHeading eyebrow={services.eyebrow} title={services.headline} />
           </Reveal>
@@ -192,7 +146,7 @@ export default function HomePage() {
                 <Reveal key={stage.key} delay={i * 0.1}>
                   <Card className="h-full overflow-hidden p-7">
                     <div className="-mx-7 -mt-7 mb-5 h-1.5" style={{ backgroundColor: accent.bar }} />
-                    <p className={`font-mono-label text-xs font-semibold uppercase tracking-[0.16em] ${accent.text}`}>
+                    <p className={`font-mono-label text-base font-semibold tracking-[0.02em] ${accent.text}`}>
                       {stage.label}
                     </p>
                     <ul className="mt-4 space-y-2.5">
@@ -232,8 +186,8 @@ export default function HomePage() {
             <p className="font-display mt-4 text-2xl font-medium leading-snug text-white sm:text-[1.75rem]">
               {about.closing}
             </p>
-            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-gold-light">
-              {leadership.founder.name} — {leadership.founder.role}
+            <p className="mt-6 text-base font-semibold tracking-[0.02em] text-gold-light">
+              {leadership.founder.name}, {leadership.founder.role}
             </p>
             <Button href="/leadership" variant="outline-light" className="mt-8">
               Meet the Team <ArrowRight size={16} />

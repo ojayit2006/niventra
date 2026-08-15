@@ -4,11 +4,7 @@ import { nav, site } from "@/data/content";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-navy-deep text-white">
-      <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 opacity-[0.07]">
-        <Image src="/logo/niventra-icon-mono.png" alt="" fill className="object-contain invert" />
-      </div>
-
+    <footer className="bg-navy-deep text-white">
       <div className="mx-auto max-w-7xl px-6 pb-10 pt-16 sm:px-8">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
@@ -18,7 +14,7 @@ export default function Footer() {
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-display text-2xl font-bold text-white">NIVENTRA</span>
-                <span className="font-mono-label text-[0.55rem] uppercase tracking-[0.22em] text-white/55">
+                <span className="font-mono-label text-[0.82rem] tracking-[0.02em] text-white/55">
                   Medical Affairs <span className="opacity-70">LLP</span>
                 </span>
               </span>

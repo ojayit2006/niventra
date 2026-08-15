@@ -25,7 +25,7 @@
   /* ── Type ────────────────────────────────────────────────────── */
   --font-display: var(--font-newsreader), "Iowan Old Style", "Palatino Linotype", serif;
   --font-body: var(--font-plex-sans), "Segoe UI", system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), "Courier New", monospace;
+  --font-mono: "Times New Roman", Times, serif;
 
   /* ── Shape ───────────────────────────────────────────────────── */
   --radius-panel: 1.75rem;
@@ -84,14 +84,14 @@ body {
 
 @layer utilities {
   .font-display { font-family: var(--font-display); }
-  .font-mono-label { font-family: var(--font-mono); }
+  .font-mono-label { font-family: var(--font-mono); font-weight: 700; }
 
   /* Eyebrow / micro-label treatment used across every page */
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
     color: var(--color-navy);
   }
 

@@ -17,23 +17,13 @@ export default function AwardsPage() {
           <section key={cat.key} className={ci % 2 === 1 ? "bg-paper-tint" : ""}>
             <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-24">
               <Reveal>
-                <div className="flex items-start gap-5">
-                  <span
-                    className="font-display select-none text-6xl font-bold leading-none text-gold/15 sm:text-7xl"
-                    aria-hidden
-                  >
-                    {String(ci + 1).padStart(2, "0")}
-                  </span>
-                  <div className="pt-2">
-                    <div className="flex items-center gap-2.5">
-                      <Award className="text-gold" size={20} strokeWidth={1.75} />
-                      <p className="font-mono-label text-xs font-semibold uppercase tracking-[0.16em] text-gold">
-                        Category
-                      </p>
-                    </div>
-                    <h2 className="font-display mt-2 text-2xl font-bold text-ink sm:text-3xl">{cat.title}</h2>
-                  </div>
+                <div className="flex items-center gap-2.5">
+                  <Award className="text-gold" size={18} strokeWidth={1.75} />
+                  <p className="font-mono-label text-base font-semibold tracking-[0.02em] text-gold">
+                    Category {String(ci + 1).padStart(2, "0")}
+                  </p>
                 </div>
+                <h2 className="font-display mt-2 text-2xl font-bold text-ink sm:text-3xl">{cat.title}</h2>
                 <ul className="mt-8 grid gap-4 sm:grid-cols-3">
                   {cat.items.map((item) => (
                     <li key={item} className="text-sm leading-relaxed text-ink-soft sm:text-base">

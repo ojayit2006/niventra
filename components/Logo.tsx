@@ -13,7 +13,7 @@ export default function Logo({ tone = "navy" }: { tone?: "navy" | "light" }) {
         <span className={`font-display text-[1.45rem] font-bold tracking-tight sm:text-[1.65rem] ${textColor}`}>
           NIVENTRA
         </span>
-        <span className={`font-mono-label text-[0.58rem] tracking-[0.22em] uppercase ${subColor}`}>
+        <span className={`font-mono-label text-[0.85rem] tracking-[0.02em] ${subColor}`}>
           Medical Affairs <span className="opacity-70">LLP</span>
         </span>
       </span>
