@@ -218,7 +218,7 @@ export const qualifications = {
   snapshotStats: [
     { value: 100, suffix: "+", label: "SKUs" },
     { value: 12, suffix: "+", label: "Launches" },
-    { value: 800, suffix: "+", label: "KOLs Engaged" },
+    { value: 1000, suffix: "+", label: "KOLs Engaged" },
     { value: 45, suffix: "+", label: "DCGI Presentations" },
   ],
 };
