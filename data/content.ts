@@ -287,7 +287,7 @@ export const expertise = {
       { value: 100, suffix: "+", label: "Training sessions delivered" },
       { value: "200–400", suffix: "", label: "Reps trained per cycle meeting" },
       { value: 250, suffix: "", label: "Faculty developed" },
-      { value: "2,500–3,000", suffix: "", label: "HCPs reached via faculty" },
+      { value: 1000, suffix: "+", label: "HCPs reached via faculty" },
     ],
     items: [
       "Delivering 100+ scientific, therapeutic-area and product-training sessions for internal medical and commercial teams",
@@ -296,7 +296,7 @@ export const expertise = {
       "Building and developing MSL teams, including competency frameworks, stakeholder-engagement models, KPI tracking and coaching",
       "Supporting onboarding, mentoring and career transitions from MSL to Medical Advisor and leadership roles",
       "Establishing scientific communication and internal-speaker development programmes",
-      "Leading faculty-development models that enabled 250 trained faculty members to support education reaching approximately 2,500–3,000 HCPs",
+      "Leading faculty-development models that enabled 250 trained faculty members to support education reaching 1000+ HCPs",
       "Conducting regular one-to-one coaching and mentoring to develop team capability and accountability",
     ],
     images: [

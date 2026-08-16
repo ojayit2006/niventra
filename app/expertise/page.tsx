@@ -118,7 +118,7 @@ export default function ExpertisePage() {
             </h2>
             <div className="relative mt-8 aspect-[1376/768] w-full overflow-hidden rounded-panel shadow-panel-lg">
               <Image
-                src="/images/deck/expertise-overview.jpg"
+                src="/images/deck/expertise-overview-v2.jpg"
                 alt="Applying senior medical judgment to the friction points that matter most: launch readiness, evidence strategy, capability transformation"
                 fill
                 className="object-cover"

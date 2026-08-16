@@ -15,7 +15,7 @@ export const imageAspect: Record<string, number> = {
   "/images/awards/medical-excellence/3.jpg": 1.4311,
   "/images/awards/medical-excellence/4.jpg": 1.4173,
   "/images/awards/medical-excellence/5.jpg": 1.4497,
-  "/images/deck/expertise-overview.jpg": 1.7917,
+  "/images/deck/expertise-overview-v2.jpg": 1.7917,
   "/images/deck/qualifications-snapshot.jpg": 1.7917,
   "/images/expertise/capability-building/1.jpg": 1.4195,
   "/images/expertise/capability-building/2.jpg": 1.4047,

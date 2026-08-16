@@ -4,7 +4,6 @@ import { Compass, Rocket, TrendingUp } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
-import CurrentLine from "@/components/CurrentLine";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { services } from "@/data/content";
 
@@ -73,42 +72,6 @@ export default function ServicesPage() {
           </Reveal>
         </div>
       </section>
-
-      {/* Per-stage statements */}
-      <div className="divide-y divide-line">
-        {services.lifecycle.map((stage, i) => {
-          const meta = stageMeta[stage.key];
-          const StageIcon = meta.icon;
-          return (
-            <section key={stage.key} className={`relative overflow-hidden ${i % 2 === 1 ? "bg-paper-tint" : ""}`}>
-              <p
-                aria-hidden
-                className="font-display pointer-events-none absolute -top-6 right-6 select-none text-[9rem] font-bold leading-none sm:right-10 sm:text-[13rem]"
-                style={{ color: meta.color, opacity: 0.06 }}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </p>
-              <div className="relative mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
-                <Reveal>
-                  <span
-                    className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl shadow-panel-lg ${meta.bg}`}
-                  >
-                    <StageIcon size={28} className="text-white" strokeWidth={1.75} />
-                  </span>
-                  <p className={`font-mono-label mt-6 text-sm font-semibold tracking-[0.15em] ${meta.text}`}>
-                    STAGE {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h2 className="font-display mt-3 text-3xl font-bold text-ink sm:text-5xl">{stage.label}</h2>
-                  <CurrentLine tone={meta.tone} className="mx-auto mt-6 max-w-[9rem]" />
-                  <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-slate sm:text-xl">
-                    {stage.intro}
-                  </p>
-                </Reveal>
-              </div>
-            </section>
-          );
-        })}
-      </div>
 
       {/* Closing */}
       <section className="border-t border-line bg-navy-deep">
