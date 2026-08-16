@@ -6,6 +6,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import CurrentLine from "@/components/CurrentLine";
 import Reveal from "@/components/ui/Reveal";
 import { about, services, leadership, teaser, site } from "@/data/content";
+import { imageAspect } from "@/data/imageAspect";
 
 const teaserIcons = { rocket: Rocket, target: Target, users: Users } as const;
 
@@ -173,12 +174,15 @@ export default function HomePage() {
       {/* Founder teaser */}
       <section className="border-t border-line bg-navy-deep">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <Reveal className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-panel shadow-panel-lg lg:mx-0">
+          <Reveal
+            className="relative mx-auto w-full max-w-md overflow-hidden rounded-panel shadow-panel-lg lg:mx-0"
+            style={{ aspectRatio: imageAspect[leadership.founder.photo] ?? 4 / 5 }}
+          >
             <Image
               src={leadership.founder.photo}
               alt={leadership.founder.name}
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </Reveal>
           <Reveal delay={0.1}>

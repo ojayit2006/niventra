@@ -33,7 +33,7 @@ export default function AwardsPage() {
                 </ul>
               </Reveal>
 
-              <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+              <div className="mt-12 grid grid-cols-2 items-start gap-5 sm:grid-cols-3 lg:grid-cols-4">
                 {cat.images.map((src, ii) => (
                   <Reveal key={src} delay={Math.min(ii * 0.06, 0.4)}>
                     <CredentialCard src={src} />

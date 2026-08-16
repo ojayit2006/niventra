@@ -1,61 +1,23 @@
 import type { Metadata } from "next";
 import type { LucideIcon } from "lucide-react";
-import {
-  Compass,
-  Rocket,
-  TrendingUp,
-  ClipboardCheck,
-  FileSearch,
-  Users,
-  Lightbulb,
-  CheckCircle2,
-  MessageSquare,
-  GraduationCap,
-  BookOpen,
-  Sparkles,
-  UserCheck,
-  ShieldCheck,
-  Activity,
-  FlaskConical,
-  Mic,
-  MessageCircle,
-} from "lucide-react";
+import { Compass, Rocket, TrendingUp } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import CurrentLine from "@/components/CurrentLine";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { services } from "@/data/content";
 
 export const metadata: Metadata = { title: "Services" };
 
-const stageMeta: Record<string, { icon: LucideIcon; tone: "navy" | "teal" | "gold"; color: string; text: string }> = {
-  prelaunch: { icon: Compass, tone: "navy", color: "var(--color-navy)", text: "text-navy" },
-  launch: { icon: Rocket, tone: "teal", color: "var(--color-teal)", text: "text-teal" },
-  postlaunch: { icon: TrendingUp, tone: "gold", color: "var(--color-gold)", text: "text-gold" },
+const stageMeta: Record<
+  string,
+  { icon: LucideIcon; tone: "navy" | "teal" | "gold"; color: string; text: string; bg: string }
+> = {
+  prelaunch: { icon: Compass, tone: "navy", color: "var(--color-navy)", text: "text-navy", bg: "bg-navy-deep" },
+  launch: { icon: Rocket, tone: "teal", color: "var(--color-teal)", text: "text-teal", bg: "bg-teal" },
+  postlaunch: { icon: TrendingUp, tone: "gold", color: "var(--color-gold)", text: "text-gold", bg: "bg-gold" },
 };
-
-const itemIconRules: [RegExp, LucideIcon][] = [
-  [/assessment/i, ClipboardCheck],
-  [/evidence gap/i, FileSearch],
-  [/kol/i, Users],
-  [/rationale/i, Lightbulb],
-  [/readiness/i, CheckCircle2],
-  [/narrative/i, MessageSquare],
-  [/capability/i, GraduationCap],
-  [/education/i, BookOpen],
-  [/actionable insights/i, Sparkles],
-  [/msl/i, UserCheck],
-  [/governance/i, ShieldCheck],
-  [/real world evidence/i, Activity],
-  [/investigator initiated study/i, FlaskConical],
-  [/speaker/i, Mic],
-  [/communication/i, MessageCircle],
-];
-
-function itemIcon(text: string): LucideIcon {
-  const match = itemIconRules.find(([re]) => re.test(text));
-  return match ? match[1] : CheckCircle2;
-}
 
 export default function ServicesPage() {
   return (
@@ -66,67 +28,81 @@ export default function ServicesPage() {
         lede="Medical strategy that moves with the product, from the first evidence gap to the last mile of post-launch insight."
       />
 
-      {/* Lifecycle overview strip */}
-      <section className="border-b border-line">
-        <div className="mx-auto max-w-5xl px-6 py-14 sm:px-8">
-          <div className="relative hidden sm:block">
-            <div className="absolute inset-x-0 top-2 -translate-y-1/2">
-              <CurrentLine tone="teal" />
-            </div>
-            <div className="relative grid grid-cols-3 gap-8">
-              {services.lifecycle.map((stage) => {
-                const meta = stageMeta[stage.key];
-                return (
-                  <div key={stage.key} className="flex flex-col items-center gap-3 text-center">
-                    <span
-                      className="inline-flex h-4 w-4 rounded-full border-2 bg-paper"
-                      style={{ borderColor: meta.color }}
-                    />
-                    <p className={`font-mono-label text-base font-semibold tracking-[0.02em] ${meta.text}`}>
-                      {stage.label}
-                    </p>
+      {/* Lifecycle overview */}
+      <section className="border-b border-line bg-paper-tint">
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:px-8 sm:py-20">
+          <Reveal>
+            <SectionHeading
+              eyebrow="At a Glance"
+              title="One medical strategy, three connected stages"
+              lede="The same scientific thread runs from first evidence gap to last-mile post-launch insight — carried through by a single accountable lead rather than handed off between teams."
+            />
+          </Reveal>
+
+          <Reveal className="mt-12 grid gap-7 sm:grid-cols-3">
+            {services.lifecycle.map((stage, i) => {
+              const meta = stageMeta[stage.key];
+              const StageIcon = meta.icon;
+              return (
+                <div
+                  key={stage.key}
+                  className="overflow-hidden rounded-panel border border-line bg-white shadow-panel-lg"
+                >
+                  <div className={`flex items-center gap-3.5 px-6 py-5 ${meta.bg}`}>
+                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15">
+                      <StageIcon size={20} className="text-white" strokeWidth={1.75} />
+                    </span>
+                    <div>
+                      <p className="font-mono-label text-[0.68rem] tracking-[0.1em] text-white/75">
+                        Stage {String(i + 1).padStart(2, "0")}
+                      </p>
+                      <p className="font-display text-xl font-semibold text-white">{stage.label}</p>
+                    </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                  <ul className="space-y-3.5 px-6 py-6">
+                    {stage.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-sm leading-snug text-ink-soft">
+                        <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${meta.bg}`} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </Reveal>
         </div>
       </section>
 
-      {/* Per-stage sections */}
+      {/* Per-stage statements */}
       <div className="divide-y divide-line">
         {services.lifecycle.map((stage, i) => {
           const meta = stageMeta[stage.key];
           const StageIcon = meta.icon;
           return (
-            <section key={stage.key} className={i % 2 === 1 ? "bg-paper-tint" : ""}>
-              <div className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-24">
+            <section key={stage.key} className={`relative overflow-hidden ${i % 2 === 1 ? "bg-paper-tint" : ""}`}>
+              <p
+                aria-hidden
+                className="font-display pointer-events-none absolute -top-6 right-6 select-none text-[9rem] font-bold leading-none sm:right-10 sm:text-[13rem]"
+                style={{ color: meta.color, opacity: 0.06 }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <div className="relative mx-auto max-w-3xl px-6 py-20 text-center sm:px-8 sm:py-28">
                 <Reveal>
-                  <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-                    <div>
-                      <div className="flex items-center gap-3">
-                        <StageIcon size={28} style={{ color: meta.color }} strokeWidth={1.75} />
-                        <p className={`font-mono-label text-base font-semibold tracking-[0.02em] ${meta.text}`}>
-                          Stage {String(i + 1).padStart(2, "0")}
-                        </p>
-                      </div>
-                      <h2 className="font-display mt-4 text-3xl font-bold text-ink sm:text-4xl">{stage.label}</h2>
-                      <p className="mt-4 max-w-sm text-base leading-relaxed text-slate">{stage.intro}</p>
-                      <CurrentLine tone={meta.tone} className="mt-8 max-w-[10rem]" />
-                    </div>
-
-                    <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
-                      {stage.items.map((item) => {
-                        const ItemIcon = itemIcon(item);
-                        return (
-                          <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-ink-soft sm:text-base">
-                            <ItemIcon size={17} className={`mt-0.5 shrink-0 ${meta.text}`} strokeWidth={1.75} />
-                            {item}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
+                  <span
+                    className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl shadow-panel-lg ${meta.bg}`}
+                  >
+                    <StageIcon size={28} className="text-white" strokeWidth={1.75} />
+                  </span>
+                  <p className={`font-mono-label mt-6 text-sm font-semibold tracking-[0.15em] ${meta.text}`}>
+                    STAGE {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h2 className="font-display mt-3 text-3xl font-bold text-ink sm:text-5xl">{stage.label}</h2>
+                  <CurrentLine tone={meta.tone} className="mx-auto mt-6 max-w-[9rem]" />
+                  <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-slate sm:text-xl">
+                    {stage.intro}
+                  </p>
                 </Reveal>
               </div>
             </section>

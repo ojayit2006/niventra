@@ -125,9 +125,9 @@ export const leadership = {
     intro:
       "A Medical Affairs leader with over two decades of experience across leading pharmaceutical organisations, translating science into strategy at every stage of the product journey.",
     highlights: [
-      { value: "20+", label: "Years in Medical Affairs" },
+      { value: "25+", label: "Years in Medical Affairs" },
       { value: "100+", label: "Brands led" },
-      { value: "8", label: "Global pharma organisations" },
+      { value: "6", label: "Global pharma organisations" },
     ],
     bio: [
       "Medical Affairs leader with over two decades of experience across leading pharmaceutical organisations.",
@@ -137,6 +137,30 @@ export const leadership = {
     ],
     disclaimer:
       "The organisations mentioned are former employers of Dr Nivedita Telang and are referenced solely to describe her professional experience. NIVENTRA Medical Affairs LLP is independent and is not affiliated with, endorsed by, or authorised to represent these organisations.",
+    proof: {
+      eyebrow: "Track Record",
+      headline: "Proven industry leadership",
+      stats: [
+        { value: "30+", label: "Product launches led across specialty and consumer-healthcare portfolios" },
+        { value: "50+", label: "CDSCO Subject Expert Committee presentations" },
+        { value: "1000+", label: "KOLs engaged across therapy areas and disciplines" },
+        {
+          value: "20",
+          label: "Awards for medical excellence, governance and launch success",
+        },
+        { value: "12", label: "Therapy areas spanned, from respiratory to oncology" },
+        { value: "6", label: "Global pharmaceutical organisations, in senior strategy roles" },
+      ],
+      logosIntro: "Career built across senior roles at",
+      logos: [
+        { name: "GSK", src: "/images/logos/gsk.png", width: 70 },
+        { name: "Sanofi", src: "/images/logos/sanofi.png", width: 110 },
+        { name: "Janssen", src: "/images/logos/janssen.png", width: 110 },
+        { name: "MSD", src: "/images/logos/msd.png", width: 90 },
+        { name: "Cipla", src: "/images/logos/cipla.svg", width: 90 },
+        { name: "Alkem", src: "/images/logos/alkem.png", width: 90 },
+      ],
+    },
   },
   team: [
     {
@@ -147,10 +171,15 @@ export const leadership = {
       bio: [
         "MBBS from Lokmanya Tilak Municipal Medical College, Mumbai (1998), with distinction in ENT and Ophthalmology.",
         "MS in Ophthalmology from Grant Medical College, Mumbai (2004).",
-        "Teaching faculty in Ophthalmology at K. J. Somaiya Hospital since 2005; currently Professor and Head of Department.",
-        "Specialises in cataract and refractive surgery and glaucoma, with numerous cataract surgeries performed to date.",
+        "Over 20 years of experience in ophthalmology, joining K. J. Somaiya Medical College in January 2005 and progressing to Professor and Head of the Ophthalmology Department.",
+        "A key figure in shaping the department's academic and clinical practice, combining medical education with hands-on patient care.",
+        "Specialises in advanced diagnostic techniques, cataract and refractive surgery, and glaucoma, with numerous cataract surgeries performed to date.",
+        "Known for a patient-centric approach that pairs cutting-edge medical technology with compassionate, holistic eye care.",
+        "Active researcher focused on the prevention and management of common eye diseases, particularly among the ageing population.",
+        "Leads academic programmes, seminars and workshops that disseminate the latest research and clinical practice within the ophthalmic community.",
         "Examiner for undergraduate and postgraduate ophthalmology examinations, and faculty at national ophthalmology conferences.",
         "President of the Bombay Ophthalmologists Association (Secretary, 2016–2017).",
+        "Mentors medical students and fellow professionals, fostering a collaborative environment that builds both technical skill and ethical grounding in patient care.",
       ],
     },
     {
@@ -278,7 +307,6 @@ export const expertise = {
       "/images/expertise/capability-building/5.jpg",
       "/images/expertise/capability-building/6.jpg",
       "/images/expertise/capability-building/7.jpg",
-      "/images/expertise/capability-building/8.jpg",
     ],
   },
   governance: {

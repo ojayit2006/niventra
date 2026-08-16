@@ -4,6 +4,8 @@ import { ExternalLink, CheckCircle2 } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import { leadership } from "@/data/content";
+import { imageAspect } from "@/data/imageAspect";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = { title: "Leadership Team" };
 
@@ -41,8 +43,11 @@ export default function LeadershipPage() {
       <section className="mx-auto max-w-6xl px-6 py-20 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <Reveal>
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-panel shadow-panel-lg lg:mx-0">
-              <Image src={founder.photo} alt={founder.name} fill className="object-cover" />
+            <div
+              className="relative mx-auto w-full max-w-xs overflow-hidden rounded-panel shadow-panel-lg sm:max-w-sm lg:mx-0"
+              style={{ aspectRatio: imageAspect[founder.photo] ?? 4 / 5 }}
+            >
+              <Image src={founder.photo} alt={founder.name} fill className="object-contain" />
             </div>
             {founder.linkedin && (
               <div className="mt-4 flex justify-center lg:justify-start">
@@ -80,14 +85,48 @@ export default function LeadershipPage() {
           </Reveal>
         </div>
 
+        <Reveal delay={0.15} className="mt-16 border-t border-line pt-16">
+          <SectionHeading eyebrow={leadership.founder.proof.eyebrow} title={leadership.founder.proof.headline} />
+
+          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
+            {leadership.founder.proof.stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="font-display text-3xl font-bold text-navy sm:text-4xl">{stat.value}</p>
+                <p className="mt-1.5 max-w-[15rem] text-sm leading-snug text-slate">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 border-t border-line pt-10">
+            <p className="font-mono-label text-sm tracking-[0.02em] text-slate-light">
+              {leadership.founder.proof.logosIntro}
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-6">
+              {leadership.founder.proof.logos.map((logo) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={logo.name}
+                  src={logo.src}
+                  alt={logo.name}
+                  width={logo.width}
+                  className="h-8 w-auto object-contain opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 sm:h-9"
+                />
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
         <div className="mt-16 space-y-14 border-t border-line pt-16">
           {team.map((member, i) => (
             <Reveal key={member.name} delay={i * 0.1}>
               <div className="grid gap-6 border-b border-line pb-14 last:border-0 last:pb-0 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-8">
                 <div className="flex items-center gap-4 sm:flex-col sm:items-start">
                   {member.photo ? (
-                    <span className="relative h-40 w-40 shrink-0 overflow-hidden rounded-2xl shadow-panel sm:h-64 sm:w-56">
-                      <Image src={member.photo} alt={member.name} fill className="object-cover" />
+                    <span
+                      className="relative w-48 shrink-0 overflow-hidden rounded-2xl bg-paper-tint shadow-panel sm:w-72"
+                      style={{ aspectRatio: imageAspect[member.photo] ?? 1 }}
+                    >
+                      <Image src={member.photo} alt={member.name} fill className="object-contain" />
                     </span>
                   ) : (
                     <span className="font-display flex h-28 w-28 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(150deg,#1230b5,#2bb6ce)] text-2xl font-semibold text-white sm:h-36 sm:w-36">

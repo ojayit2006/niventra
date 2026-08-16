@@ -49,7 +49,7 @@ function BulletGrid({ items }: { items: string[] }) {
 
 function Gallery({ images }: { images: string[] }) {
   return (
-    <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3">
+    <div className="mt-8 grid grid-cols-2 items-start gap-5 sm:grid-cols-3">
       {images.map((src) => (
         <CredentialCard key={src} src={src} />
       ))}
